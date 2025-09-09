@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: knowledge-hub-api
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn wsgi:application -k uvicorn.workers.UvicornWorker -w 4 -b 0.0.0.0:$PORT"
+    autoDeploy: true
